@@ -14,27 +14,30 @@ https://docs.nativescript.org/ui/professional-ui-components/SideDrawer/getting-s
     </nsDrawer:RadSideDrawer.drawerTransition>
 
     <nsDrawer:RadSideDrawer.drawerContent>
-        <GridLayout rows="auto, *" class="nt-drawer__content">
+        <GridLayout rows="auto, *" class="nt-drawer__content" iosOverflowSafeArea="true">
             <StackLayout class="nt-drawer__header">
                 <Image class="nt-drawer__header-image fas t-36" src="font://&#xf2bd;" />
                 <Label class="nt-drawer__header-brand" text="User Name" />
                 <Label class="nt-drawer__header-footnote" text="username@mail.com" />
             </StackLayout>
 
-            <ScrollView row="1" class="nt-drawer__body">
-                <StackLayout>
-                    <GridLayout
+            <!-- <ScrollView row="1" class="nt-drawer__body"> -->
+                <GridLayout rows="auto,auto,auto,auto,auto,auto,auto,auto,auto" row="1" iosOverflowSafeArea="true">
+                    <StackLayout row="0" iosOverflowSafeArea="true"
             columns="auto, *"
             class="{{ 'nt-drawer__list-item' + (selectedPage === 'Home' ? ' -selected': '') }}"
             route="home/home-page"
             title="Home"
             tap="onNavigationItemTap"
+            iosOverflowSafeArea="true"
           >
-                        <Label row="0" col="0" text="&#xf015;" class="nt-icon fas" />
-                        <Label row="0" col="1" text="Home" class="p-r-10" />
-                    </GridLayout>
+                        <StackLayout width="10" height="10" backgroundColor="red" iosOverflowSafeArea="false" iosIgnoreSafeArea="true">
+                        <Label text="wtf"></Label></StackLayout>
+                        <!-- <Label row="0" col="0" text="&#xf015;" class="nt-icon fas" iosOverflowSafeArea="false" /> -->
+                        <Label row="0" col="1" text="Home" class="p-r-10" iosOverflowSafeArea="false" />
+                    </StackLayout>
 
-                    <GridLayout
+                    <GridLayout row="1"
             columns="auto, *"
             class="{{ 'nt-drawer__list-item' + (selectedPage === 'Browse' ? ' -selected': '') }}"
             route="browse/browse-page"
@@ -45,7 +48,7 @@ https://docs.nativescript.org/ui/professional-ui-components/SideDrawer/getting-s
                         <Label row="0" col="1" text="Browse" class="p-r-10" />
                     </GridLayout>
 
-                    <GridLayout
+                    <GridLayout row="2"
             columns="auto, *"
             class="{{ 'nt-drawer__list-item' + (selectedPage === 'Search' ? ' -selected': '') }}"
             route="search/search-page"
@@ -56,7 +59,17 @@ https://docs.nativescript.org/ui/professional-ui-components/SideDrawer/getting-s
                         <Label row="0" col="1" text="Search" class="p-r-10" />
                     </GridLayout>
 
-                    <GridLayout
+                    <GridLayout row="3"
+            columns="auto, *"
+            class="{{ 'nt-drawer__list-item' + (selectedPage === 'Featured' ? ' -selected': '') }}"
+            route="featured/featured-page"
+            title="Featured"
+            tap="onNavigationItemTap"
+          >
+                        <Label row="0" col="0" text="&#xf005;" class="nt-icon fas" />
+                        <Label row="0" col="1" text="Featured" class="p-r-10" />
+                    </GridLayout>
+            <GridLayout row="4"
             columns="auto, *"
             class="{{ 'nt-drawer__list-item' + (selectedPage === 'Featured' ? ' -selected': '') }}"
             route="featured/featured-page"
@@ -67,9 +80,9 @@ https://docs.nativescript.org/ui/professional-ui-components/SideDrawer/getting-s
                         <Label row="0" col="1" text="Featured" class="p-r-10" />
                     </GridLayout>
 
-                    <StackLayout class="hr" />
+                    <!-- <StackLayout row="4" class="hr" /> -->
 
-                    <GridLayout
+                    <GridLayout row="5"
             columns="auto, *"
             class="{{ 'nt-drawer__list-item' + (selectedPage === 'Settings' ? ' -selected': '') }}"
             route="settings/settings-page"
@@ -79,12 +92,13 @@ https://docs.nativescript.org/ui/professional-ui-components/SideDrawer/getting-s
                         <Label row="0" col="0" text="&#xf013;" class="nt-icon fas" />
                         <Label row="0" col="1" text="Settings" class="p-r-10" />
                     </GridLayout>
-                </StackLayout>
-            </ScrollView>
+                </GridLayout>
+            <!-- </ScrollView> -->
         </GridLayout>
     </nsDrawer:RadSideDrawer.drawerContent>
 
     <nsDrawer:RadSideDrawer.mainContent>
-        <Frame defaultPage="home/home-page" />
+        <AbsoluteLayout></AbsoluteLayout>
+        <!-- <Frame defaultPage="home/home-page" /> -->
     </nsDrawer:RadSideDrawer.mainContent>
 </nsDrawer:RadSideDrawer>

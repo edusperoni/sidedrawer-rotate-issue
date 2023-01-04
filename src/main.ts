@@ -1,4 +1,7 @@
-import { Application } from '@nativescript/core'
+import { Application, Trace } from '@nativescript/core';
+
+Trace.enable();
+Trace.setCategories(Trace.categories.Layout);
 
 Application.run({ moduleName: 'app-root/app-root' })
 
